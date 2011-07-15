@@ -1,0 +1,66 @@
+﻿#content
+{
+    width: 1200px;
+    margin: auto;
+    text-align: center;    
+}
+
+#personal_details
+{
+    float:left;
+    width: 45%;
+    text-align: left;
+}
+
+#security_information
+{
+    text-align: left;
+    width: 100%;
+}
+
+.failed_payment_attempts
+{
+    color: Red;
+}
+
+#security_information table
+{
+    width: 100%;
+}
+#personal_details table td input, #security_information table td input
+{
+    width: 100%;
+}
+
+#login_div
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#table_with_purchase_details
+{
+    width: 100%;
+}
+
+#table_with_purchase_details td input
+{
+    width: 100%;
+}
+
+#table_with_purchase_details td
+{
+    text-align: left;
+}
+
+#table_with_purchase_details th
+{
+    text-align: left;
+}
+
+#div_with_purchase_details
+{
+    text-align: center;
+    margin: auto;
+    width: 700px;
+}

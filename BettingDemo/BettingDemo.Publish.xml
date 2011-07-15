@@ -1,0 +1,44 @@
+<publishData>
+  <publishTarget publishUrl="C:\inetpub\wwwroot\betting_demo\">
+    <file relUrl="Login.aspx" publishTime="06/15/2011 09:06:37" />
+    <file relUrl="images/intralot/page_bg.gif" publishTime="06/20/2011 15:23:40" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="02/21/2011 07:26:42" />
+    <file relUrl="Web.config" publishTime="06/20/2011 17:43:57" />
+    <file relUrl="Logout.ashx" publishTime="06/15/2011 09:21:22" />
+    <file relUrl="bin/BettingDemo.dll" publishTime="06/20/2011 18:02:20" />
+    <file relUrl="images/SuperSportingBetLogo.png" publishTime="06/13/2011 17:08:21" />
+    <file relUrl="bin/Fraudpointer.NET.pdb" publishTime="06/20/2011 18:02:20" />
+    <file relUrl="css/main.css" publishTime="06/20/2011 17:59:03" />
+    <file relUrl="Checkout.aspx" publishTime="06/20/2011 18:01:54" />
+    <file relUrl="Play.aspx" publishTime="06/16/2011 15:30:31" />
+    <file relUrl="css/intralot/main.css" publishTime="06/20/2011 17:40:54" />
+    <file relUrl="bin/Fraudpointer.NET.dll" publishTime="06/20/2011 18:02:20" />
+    <file relUrl="css/super_sporting_bet/main.css" publishTime="06/20/2011 17:40:48" />
+    <file relUrl="Default.aspx" publishTime="06/20/2011 15:15:07" />
+    <file relUrl="BettingDemo.Master" publishTime="06/20/2011 17:40:55" />
+    <file relUrl="bin/BettingDemo.pdb" publishTime="06/20/2011 18:02:20" />
+    <file relUrl="MessageToUser.aspx" publishTime="06/16/2011 15:31:51" />
+    <file relUrl="SignUp.aspx" publishTime="06/20/2011 17:37:23" />
+    <file relUrl="images/credit_card_logo_erny-smaller.jpg" publishTime="06/13/2011 16:50:04" />
+    <file relUrl="images/intralot/intralot_logo.png" publishTime="06/20/2011 16:52:19" />
+  </publishTarget>
+  <publishTarget publishUrl="http://10.0.0.48/">
+    <file relUrl="Login.aspx" publishTime="06/15/2011 09:06:37" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="02/21/2011 07:26:42" />
+    <file relUrl="Web.config" publishTime="06/16/2011 14:54:59" />
+    <file relUrl="Logout.ashx" publishTime="06/15/2011 09:21:22" />
+    <file relUrl="bin/BettingDemo.dll" publishTime="06/16/2011 15:31:55" />
+    <file relUrl="images/SuperSportingBetLogo.png" publishTime="06/13/2011 17:08:21" />
+    <file relUrl="bin/Fraudpointer.NET.pdb" publishTime="06/16/2011 15:31:55" />
+    <file relUrl="css/main.css" publishTime="06/16/2011 15:19:20" />
+    <file relUrl="Checkout.aspx" publishTime="06/16/2011 15:28:34" />
+    <file relUrl="Play.aspx" publishTime="06/16/2011 15:30:31" />
+    <file relUrl="bin/Fraudpointer.NET.dll" publishTime="06/16/2011 15:31:55" />
+    <file relUrl="Default.aspx" publishTime="06/16/2011 15:29:51" />
+    <file relUrl="BettingDemo.Master" publishTime="06/16/2011 14:53:17" />
+    <file relUrl="bin/BettingDemo.pdb" publishTime="06/16/2011 15:31:55" />
+    <file relUrl="MessageToUser.aspx" publishTime="06/16/2011 15:31:51" />
+    <file relUrl="SignUp.aspx" publishTime="06/16/2011 14:58:30" />
+    <file relUrl="images/credit_card_logo_erny-smaller.jpg" publishTime="06/13/2011 16:50:04" />
+  </publishTarget>
+</publishData>

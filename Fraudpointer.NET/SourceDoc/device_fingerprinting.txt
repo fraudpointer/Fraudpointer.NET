@@ -1,0 +1,116 @@
+﻿/// \defgroup device_fingerprinting Device Fingerprinting
+///
+/// FraudPointer Server has been designed to identify the device that is connected to your server and 
+/// is using your e-shop. We can identify it with pretty much high accurracy. This section describes
+/// what you have to do in order to allow FraudPointer Server work to this target.
+/// 
+/// <h2>HTML Output</h2>
+///
+/// <b>After</b> having created a Fraudpointer.API.Models.AssessmentSession, you need to serve your customer
+/// the html page with a javascript reference to FraudPointer <c>fp.js</c> script. Hence, the resulting html
+/// output of your, probably, dynamic <c>.aspx</c> page should give something like that:
+///
+/// \code
+<head>
+ ......
+  <script language="javascript" type="text/javascript" src="https://production.fraudpointer.com/fp.js"></script>
+ ......
+ </head>
+\endcode
+///
+/// This script defines the <c>fraudpointer.fp()</c> function that you need to call at some point in time. 
+/// A suggestion is to call it after your document is loaded.
+///
+/// You can do that as follows:
+/// \code
+<script language="javascript" type="text/javascript">
+window.onload = function() {
+  fraudpointer.fp(.......);   
+}
+</script>
+\endcode
+///
+/// The point here is that you have to pass there the DOM identifier of an <c>input</c> tag of type 
+/// <c>hidden</c>. Which by return needs to hold the value of the Fraudpointer.API.Models.AssessmentSession.Id.
+/// Assuming that this <c>hidden input</c> has DOM identifier <c>fp_sid</c>, then the above snippet becomes:
+/// \code
+<script language="javascript" type="text/javascript">
+window.onload = function() {
+  fraudpointer.fp('fp_sid');   
+}
+</script>
+\endcode
+///
+/// We have said that this <c>fp_sid</c> html element needs to have as value the Id of the Fraudpointer.API.Models.AssessmentSession.
+/// Assuming that this is, for example, <c>34567</c>, html needs to have something like the following, somewhere in its body:
+/// \code
+...
+<input type='hidden' id='fp_sid' value='34567'/>
+...
+\endcode
+///
+/// Summing up, the html output sent to your customer's computer has to contain content similar to the following:
+/// \code
+<html>
+<head>
+	.... other head stuff goes here .....
+	<script language="javascript" type="text/javascript" src="https://production.fraudpointer.com/fp.js"></script>
+	<script>
+		window.onload = function() {
+			fraudpointer.fp('fp_sid');
+		}
+	</script>
+	..... other head stuff goes here .....
+</head>
+<body>
+ .... other body elements go here .....
+ <input type="hidden" id="fp_sid" value="34567"/>
+ .... other body elements go here .....
+</body>
+</html>
+\endcode
+///
+/// This is enough for FraudPointer Service to collect device related data from your customer's device.
+///
+/// <hr/>
+/// <h3>Hints:</h3>
+///
+/// <b>1) Filling in the AssessmentSession Id using server side code</b>:
+///
+/// Assuming that you are using a dynamic page like ".aspx", you can have the following ASP .NET control
+/// in your <c>.aspx</c> code:
+///
+/// \code
+<asp:HiddenField ID="hdnfldFpSessionId" runat="server" />
+\endcode
+///
+/// ... and on your <c>Page_Load</c> method of your page, you can set the <c>Value</c> after having got the
+/// Fraudpointer.API.Models.AssessmentSession from FraudPointer Server. This is an example snippet:
+///
+/// \code
+protected void Page_Load(object sender, EventArgs e)
+{
+
+  IClient client = ClientFactory.Construct("https://production.fraudpointer.com/api",
+                                                     "123497129834wabcd12398fed");
+  AssessmentSession assessmentSession = client.CreateAssessmentSession();
+  hdnfldFpSessionId.Value = assessmentSession.Id.ToString(CultureInfo.InvariantCulture);
+
+}
+\endcode
+/// However, if you do that, pay attention to the actual document id that ASP .NET generates for this
+/// asp control. It is not alwasy <c>hdnfldFpSessionId</c> (depends on the context).
+///
+/// <b>2) Using jQuery</b>:
+///
+/// If you are using <c>jQuery</c> you can always call <c>fraudpointer.fp()</c> function on your <c>document ready</c>
+/// handler. So, instead of writing something like <c>window.onload = function () {.....}</c> as we had above, you can
+/// write something like:
+/// \code
+<script language="javascript" type="text/javascript">
+$(document).ready(function() {
+    fraudpointer.fp($('#fp_sid').val());
+});
+</script>
+\endcode
+///

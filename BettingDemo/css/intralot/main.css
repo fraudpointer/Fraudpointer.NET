@@ -1,0 +1,21 @@
+﻿html
+{
+    background-color: #914100;
+    background-image: url("../../images/intralot/page_bg.gif");
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+    font-family: Tahoma,Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+body
+{
+}
+
+a, a:link, a:visited, a:hover, a:active 
+{
+    color: White;
+}

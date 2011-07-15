@@ -1,0 +1,85 @@
+﻿///
+/// \mainpage .NET Proxy Client for FraudPointer Service (ver.1.0)
+/// 
+/// \link Fraudpointer.API.ClientFactory ClientFactory \endlink is the class you need when you start using FraudPointer API.
+/// It has a static method that allows you to instantiate a client object. This is Fraudpointer.API.ClientFactory.Construct().
+/// 
+/// <b>Sample Code: </b>\ref sample_code "Click here" if you want to see a \ref sample_code "sample piece of code" that uses the methods of the API.
+/// <br/>
+/// <br/>
+/// or go to \link developers_guide Developer's Guide \endlink
+/// <br/>
+/// <br/>
+/// <br/>
+/// <b>Impornant:</b> Do not forget to take actions for \link device_fingerprinting Device Fingerprinting \endlink.
+/// <br/>
+/// <br/>
+/// <hr/>
+/// \section examples Examples:
+/// \link WindowsConsoleClientExample Windows Console Application using FraudPointer API \endlink
+/// <br/>
+/// \link WebApplicationClientExample Web Application using FraudPointer API \endlink
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/>
+/// <br/>
+/// <hr/>
+/// <a href="http://www.fraudpointer.com/" target="_blank">[FraudPointer Home Page]</a>
+/// 
+
+/// \example WindowsConsoleClientExample 
+///
+/// This simple Windows Console Application example demonstrates how you can use FraudPointer Service.
+///
+/// <c>WindowsConsoleClientExample.cs</c>
+/// \include WindowsConsoleClientExample.cs
+///
+/// \example WebApplicationClientExample
+/// 
+/// This is a Web Application that is using the FraudPointer API.
+///
+/// <c>AcmeBuyingTickets.Master</c>
+/// \include AcmeBuyingTickets.Master
+/// 
+/// <c>AcmeBuyingTickets.Master.cs</c>
+/// \include AcmeBuyingTickets.Master.cs
+///
+/// <c>Default.aspx</c>
+/// \include Default.aspx
+///
+/// <c>Default.aspx.cs</c>
+/// \include Default.aspx.cs
+///
+/// <c>Checkout.aspx</c>
+/// \include Checkout.aspx
+///
+/// <c>Checkout.aspx.cs</c>
+/// \include Checkout.aspx.cs
+///
+/// <c>PurchaseResult.aspx</c>
+/// \include PurchaseResult.aspx
+///
+/// <c>PurchaseResult.aspx.cs<c>
+/// \include PurchaseResult.aspx.cs
+///
+/// <c>Web.config</c>
+/// \include Web.config
+///
+/// <c>checkout.js</c>
+/// \include checkout.js
+/// 
+/// 
+/// \page developers_guide Developer's Guide
+/// \htmlonly 
+<iframe src="http://documentation.fraudpointer.com/developers-guide/developers-guide-home-page/" width="100%" height="1800" frameborder="0">
+</iframe>
+\endhtmlonly
+
+/// \page system_attributes System Attributes
+/// \htmlonly
+<iframe src="http://documentation.fraudpointer.com/developers-guide/developers-guide-system-attributes/" width="100%" height="1800" frameborder="0">
+</iframe>
+\endhtmlonly
+

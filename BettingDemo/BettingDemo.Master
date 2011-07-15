@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BettingDemo.master.cs" Inherits="BettingDemo.BettingDemo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title></title>
+    <link href="css/main.css" rel="Stylesheet" type="text/css" />
+    <link href=<%= "\"" + GetStyleSheet() + "\"" %> rel="Stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+ <div id="content">
+    <form id="form1" runat="server">
+    <div>
+        <a href="/"><asp:Image ID="imgLogo" runat="server" /></a><br />
+        <asp:Label ID="lblBrandingName" runat="server" /><br />
+        <div id="wallet">
+            <asp:Label ID="lblWalletAmount" runat="server" Text="Your Wallet:" Visible="false" />
+            <asp:TextBox ID="txtbxWalletAmount" runat="server" OnInit="WalletAmount_Init" Visible = "false" ReadOnly="true"/>        
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>    
+    <div id="logout" style="position: absolute; top: 100px; right: 100px; width: 100px;">
+        <asp:HyperLink ID="hprlnkLogout" runat="server" NavigateUrl="~/Logout.ashx" Text="Logout" OnInit="Logout_Init"/>
+    </div>
+
+    </form> 
+ </div>
+</body>
+</html>

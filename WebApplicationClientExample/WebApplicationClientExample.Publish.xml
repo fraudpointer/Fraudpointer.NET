@@ -1,0 +1,18 @@
+<publishData>
+  <publishTarget publishUrl="C:\inetpub\wwwroot\shopping_demo\">
+    <file relUrl="css/main.css" publishTime="05/30/2011 14:40:23" />
+    <file relUrl="Checkout.aspx" publishTime="07/15/2011 10:17:17" />
+    <file relUrl="AcmeBuyingTickets.Master" publishTime="05/20/2011 11:09:01" />
+    <file relUrl="bin/Fraudpointer.NET.pdb" publishTime="07/15/2011 10:18:43" />
+    <file relUrl="PurchaseResult.aspx" publishTime="05/30/2011 14:24:40" />
+    <file relUrl="Web.config" publishTime="07/15/2011 08:44:08" />
+    <file relUrl="Default.aspx" publishTime="07/15/2011 09:56:46" />
+    <file relUrl="bin/WebApplicationClientExample.pdb" publishTime="07/15/2011 10:18:43" />
+    <file relUrl="scripts/checkout.js" publishTime="05/25/2011 10:27:03" />
+    <file relUrl="bin/WebApplicationClientExample.dll" publishTime="07/15/2011 10:18:43" />
+    <file relUrl="images/acme_logo.png" publishTime="05/20/2011 09:00:19" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="02/21/2011 07:26:42" />
+    <file relUrl="bin/Fraudpointer.NET.xml" publishTime="06/29/2011 13:37:55" />
+    <file relUrl="bin/Fraudpointer.NET.dll" publishTime="07/15/2011 10:18:43" />
+  </publishTarget>
+</publishData>
