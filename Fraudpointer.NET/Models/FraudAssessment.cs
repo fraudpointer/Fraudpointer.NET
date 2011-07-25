@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace Fraudpointer.API.Models
 {    
@@ -95,13 +96,30 @@ namespace Fraudpointer.API.Models
         /// </summary>
         /// <remarks>
         /// The Fraud Assessment uses a set of Fraud Assessment Rules that belong to one specific Profile. The Profile is
-        /// selected at run-time using the Profile Selection Rules. This property returns an instance of the object that
-        /// represents the Profile that has been selected in order to carry out the Fraud Assessment at hand.
+        /// selected at run-time using the Profile Selection Rules. This property returns a Profile object 
+        /// that has been selected in order to carry out the Fraud Assessment at hand.
         /// </remarks>
         [JsonProperty(PropertyName="profile")]
         public Profile Profile { get; set; }
 
-    } // public class FraudAssessment
+        /// <summary>
+        /// The case generated with the assesment.
+        /// </summary>
+        /// <remarks>
+        /// When a final assesment is created a case is created too. This field will contain the case information
+        /// when you create a final assesment or you get a previous assesment.
+        /// </remarks>
+        [JsonProperty(PropertyName="case")]
+        public Case Case { get; set; }
+
+        /// <summary>
+        /// Last time this FraudAssesment was updated.
+        /// </summary>
+        [JsonProperty(PropertyName = "updated_at")]
+        public DateTime UpdatedAt { get; set; }
+    }
+
+// public class FraudAssessment
     //--------------------------------
 
 } // namespace Fraudpointer.API.Models

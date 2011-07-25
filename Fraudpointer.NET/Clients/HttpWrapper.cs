@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Fraudpointer.API.Clients
 {
@@ -104,7 +105,7 @@ namespace Fraudpointer.API.Clients
                     throw new Exception("Unexpected empty response");
 
                 var responseBody = new StreamReader(responseStream).ReadToEnd();
-                var serverFraudAssessment = JsonConvert.DeserializeObject<T>(responseBody);
+                var serverFraudAssessment = JsonConvert.DeserializeObject<T>(responseBody,new IsoDateTimeConverter());
                 return serverFraudAssessment;
             }
         }

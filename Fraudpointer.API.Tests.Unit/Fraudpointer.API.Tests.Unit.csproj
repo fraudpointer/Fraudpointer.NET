@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{37B4A82D-C145-4882-89E8-064A72860E01}</ProjectGuid>
+    <ProjectGuid>{49B4BD3E-0C0B-4713-9CFB-8E4A55B39407}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fraudpointer.API</RootNamespace>
-    <AssemblyName>Fraudpointer.NET</AssemblyName>
+    <RootNamespace>Fraudpointer.API.Tests.Unit</RootNamespace>
+    <AssemblyName>Fraudpointer.API.Tests.Unit</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,55 +29,38 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Fraudpointer.NET.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libs\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\nunit\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Runtime.Serialization">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientFactory.cs" />
-    <Compile Include="ClientException.cs" />
-    <Compile Include="Clients\HttpWrapper.cs" />
-    <Compile Include="Helpers\HashAndSalt.cs" />
-    <Compile Include="Helpers\SaltedHasher.cs" />
-    <Compile Include="Models\Case.cs" />
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\AssessmentSession.cs" />
-    <Compile Include="Clients\Client.cs" />
-    <Compile Include="Models\FraudAssessment.cs" />
-    <Compile Include="IClient.cs" />
-    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\FromJsonToModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestWrappers\RequestKey.cs" />
-    <Compile Include="RequestWrappers\RequestKeyAndEvent.cs" />
-    <Compile Include="RequestWrappers\RequestKeyAndFraudAssessment.cs" />
-    <Compile Include="ResponseWrappers\ResponseAssessmentSession.cs" />
-    <Compile Include="ResponseWrappers\ResponseServerEvent.cs" />
-    <Compile Include="ResponseWrappers\ResponseFraudAssessment.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SourceDoc\device_fingerprinting.txt" />
-    <Content Include="Doxygen\doxygen.txt" />
-    <Content Include="SourceDoc\general_documentation.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Documentation\" />
+    <ProjectReference Include="..\Fraudpointer.NET\Fraudpointer.NET.csproj">
+      <Project>{37B4A82D-C145-4882-89E8-064A72860E01}</Project>
+      <Name>Fraudpointer.NET</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace Fraudpointer.API.Models
 {
@@ -23,6 +24,12 @@ namespace Fraudpointer.API.Models
         /// </summary>
         [JsonProperty(PropertyName="name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Last time this Profile was updated
+        /// </summary>
+        [JsonProperty(PropertyName = "updated_at")]
+        public DateTime UpdatedAt { get; set; }
 
     } // class Profile
     //-----------------
