@@ -55,12 +55,12 @@ namespace Fraudpointer.API.Clients
             "Error while trying to create assessment session!");
         } 
 
-        public FraudAssessment GetFraudAssesment(AssessmentSession assessmentSession, string assesmentId)
+        public FraudAssessment GetFraudAssessment(AssessmentSession assessmentSession, string assessmentId)
         {
             return CommonTryCatch( () => 
             {
                 var url = String.Format("/assessment_sessions/{0}/fraud_assessments/{1}?key={2}",
-                                                    assessmentSession.Id, assesmentId, _apiKey);
+                                                    assessmentSession.Id, assessmentId, _apiKey);
 
                 return _http.Get<ResponseFraudAssessment>(url).FraudAssessment;
 
@@ -86,7 +86,7 @@ namespace Fraudpointer.API.Clients
                 return _http.Post<ResponseFraudAssessment>(url,k).FraudAssessment;
 
             },
-            "Error while trying to create fraud assesment!");
+            "Error while trying to create fraud assessment!");
         }
         #endregion
 

@@ -154,7 +154,7 @@ namespace Fraudpointer.API
         /// </remarks>
         /// <param name="assessmentSession">A valid Models.AssessmentSession, previously created with <see cref="CreateAssessmentSession"/></param>
         /// <param name="assesmentId">A valid assesment id previously obtained with <see cref="CreateFraudAssessment"/></param>
-        FraudAssessment GetFraudAssesment(AssessmentSession assessmentSession, string assesmentId);
+        FraudAssessment GetFraudAssessment(AssessmentSession assessmentSession, string assesmentId);
         
         /// <summary>
         /// Use this method to generate a hash of a credit card number. Use the generated hash to send the encrypted credit card number
