@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using Fraudpointer.API.Models;
 using Fraudpointer.API.Responses;
 using NUnit.Framework;
 using Newtonsoft.Json;
