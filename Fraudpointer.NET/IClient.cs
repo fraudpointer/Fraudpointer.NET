@@ -141,6 +141,20 @@ namespace Fraudpointer.API
         /// Assessment Result.</returns>
         /// <exception cref="API.ClientException">It may throw a ClientException if an error occurs</exception>
         FraudAssessment CreateFraudAssessment(AssessmentSession assessmentSession, bool interim);
+
+        /// <summary>
+        /// Gets the results of a previously assesed session.
+        /// </summary>
+        /// <remarks>
+        /// Use this method to retrieve a previously created Fraud assesment.
+        /// 
+        /// When you create a fraud assesment with <see cref="CreateFraudAssessment"/> you receive
+        /// the result of the assesment and its Id. Using the session id and the assesment id you can retrieve that result
+        /// with this method.
+        /// </remarks>
+        /// <param name="assessmentSession">A valid Models.AssessmentSession, previously created with <see cref="CreateAssessmentSession"/></param>
+        /// <param name="assesmentId">A valid assesment id previously obtained with <see cref="CreateFraudAssessment"/></param>
+        FraudAssessment GetFraudAssesment(AssessmentSession assessmentSession, string assesmentId);
         
         /// <summary>
         /// Use this method to generate a hash of a credit card number. Use the generated hash to send the encrypted credit card number

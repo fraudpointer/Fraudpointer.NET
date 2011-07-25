@@ -33,7 +33,7 @@ namespace Fraudpointer.API
         public static IClient Construct(string baseUrl, string apiKey)
         {
 
-            return new Client(baseUrl, apiKey);            
+            return new Client(new HttpWrapper(baseUrl), apiKey);            
 
         } // Construct static method
         //---------------------------

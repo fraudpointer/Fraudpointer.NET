@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="ClientFactory.cs" />
     <Compile Include="ClientException.cs" />
+    <Compile Include="Clients\HttpWrapper.cs" />
     <Compile Include="Helpers\HashAndSalt.cs" />
     <Compile Include="Helpers\SaltedHasher.cs" />
     <Compile Include="Models\Event.cs" />
