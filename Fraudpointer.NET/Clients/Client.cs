@@ -17,14 +17,14 @@ namespace Fraudpointer.API.Clients
     {
         #region private attributes
 
-        private readonly HttpWrapper _http;
+        private readonly IHttpWrapper _http;
         private readonly string _apiKey;
 
         #endregion
 
         #region public methods
 
-        public Client(HttpWrapper http, string apiKey)
+        public Client(IHttpWrapper http, string apiKey)
         {
             _http = http;
             _apiKey = apiKey;

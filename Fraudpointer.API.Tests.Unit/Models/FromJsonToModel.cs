@@ -1,8 +1,8 @@
 ﻿using System;
+using Fraudpointer.API.Models;
 using Fraudpointer.API.Responses;
 using NUnit.Framework;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using Fraudpointer.API.Clients;
 
 namespace Fraudpointer.API.Tests.Unit.Models
 {
@@ -14,7 +14,24 @@ namespace Fraudpointer.API.Tests.Unit.Models
     public class FromJsonToModel
     {
         [Test]
-        public void Deserialize_FraudAssesment()
+        public void Deserialize_CompleteCase_Ok()
+        {
+            const string @case =
+            @"{
+           ""resolution"": ""Accept"",
+           ""updated_at"": ""2011-07-25T16:44:04+03:00"",
+           ""id"": 984306690,
+           ""status"": ""Closed""
+       }";
+            var c = @case.DeserializeJson<Case>();
+            Assert.IsNotNull(c);
+            Assert.AreEqual("Accept",c.Resolution);
+            Assert.AreEqual("984306690",c.Id);
+            Assert.AreEqual("Closed",c.Status);
+            Assert.AreEqual(new DateTime(2011, 07, 25, 16, 44, 04, DateTimeKind.Local), c.UpdatedAt);
+        }
+        [Test]
+        public void Deserialize_FraudAssesment_Ok()
         {
             const string assessment = @"{
    ""fraud_assessment"": {
@@ -38,7 +55,7 @@ namespace Fraudpointer.API.Tests.Unit.Models
 }";
 
             // This is how deserialization is done in the HttpWrapper class
-            var obj = JsonConvert.DeserializeObject<ResponseFraudAssessment>(assessment, new IsoDateTimeConverter());
+            var obj = assessment.DeserializeJson<ResponseFraudAssessment>();
             Assert.IsNotNull(obj);
             Assert.IsNotNull(obj.FraudAssessment);
             var fa = obj.FraudAssessment;

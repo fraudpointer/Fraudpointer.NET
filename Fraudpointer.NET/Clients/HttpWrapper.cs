@@ -3,14 +3,13 @@ using System.IO;
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Fraudpointer.API.Clients
 {
     /// <summary>
     /// A wrapper around common http calls
     /// </summary>
-    internal class HttpWrapper
+    class HttpWrapper : IHttpWrapper
     {
         /// <summary>
         /// Base url used in all requests
@@ -105,7 +104,7 @@ namespace Fraudpointer.API.Clients
                     throw new Exception("Unexpected empty response");
 
                 var responseBody = new StreamReader(responseStream).ReadToEnd();
-                var serverFraudAssessment = JsonConvert.DeserializeObject<T>(responseBody,new IsoDateTimeConverter());
+                var serverFraudAssessment = responseBody.DeserializeJson<T>();
                 return serverFraudAssessment;
             }
         }

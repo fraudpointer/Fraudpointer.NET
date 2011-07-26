@@ -32,6 +32,9 @@ namespace Fraudpointer.API.Models
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }
 
+        /// <summary>
+        /// Last time this case was updated
+        /// </summary>
         [JsonProperty(PropertyName = "updated_at")]
         public DateTime UpdatedAt { get; set; }
     }
