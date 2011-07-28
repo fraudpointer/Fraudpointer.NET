@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using BettingDemo.DAL;
 using Fraudpointer.API;
 using Fraudpointer.API.Models;
+using Fraudpointer.API.Extensions;
 
 namespace BettingDemo
 {
@@ -446,7 +447,7 @@ namespace BettingDemo
 
             // CC_HASH is a System Attribute. You should always use the CreditCardHash to hash your 
             // Credit Card Number and send it to Fraud Pointer Server.
-            l_eventToCreate.AddData("CC_HASH", _client.CreditCardHash(txtbxCardNumber.Text));
+            l_eventToCreate.AddData("CC_HASH", txtbxCardNumber.Text.CreditCardHash());
 
             // CC_CARD_HOLDER_NAME is a System Attribute.
             l_eventToCreate.AddData("CC_CARD_HOLDER_NAME", txtbxNameOnCard.Text);

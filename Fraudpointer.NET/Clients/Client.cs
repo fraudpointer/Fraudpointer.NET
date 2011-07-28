@@ -90,15 +90,6 @@ namespace Fraudpointer.API.Clients
         }
         #endregion
 
-        #region Misc functions
-        //Note: This should be an Extension method. Is not a part of the client.
-        public string CreditCardHash(string creditCardNumber)
-        {
-            const string salt = "HVK+gw==";
-            var hasher = new SaltedHasher();
-            return hasher.GetHashForSpecifiedSaltString(creditCardNumber, salt).HashString;
-        } 
-        #endregion
 
         #region private methods
         /// <summary>
