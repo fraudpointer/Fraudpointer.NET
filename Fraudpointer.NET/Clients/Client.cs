@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using Fraudpointer.API.Extensions;
 using Fraudpointer.API.Helpers;
 using Fraudpointer.API.Models;
 using Fraudpointer.API.RequestWrappers;
@@ -88,6 +89,13 @@ namespace Fraudpointer.API.Clients
             },
             "Error while trying to create fraud assessment!");
         }
+
+        public string CreditCardHash(string creditCardNumber)
+        {
+            return creditCardNumber.CreditCardHash();    
+        } // CreditCardHash()
+        //--------------------
+
         #endregion
 
 

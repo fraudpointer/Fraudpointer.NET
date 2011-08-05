@@ -285,7 +285,7 @@ namespace WebApplicationClientExample
 
             // CC_HASH is a System Attribute. You should always use the CreditCardHash to hash your 
             // Credit Card Number and send it to Fraud Pointer Server.
-            l_eventToCreate.AddData("CC_HASH", txtbxCreditCardNumber.Text.CreditCardHash());
+            l_eventToCreate.AddData("CC_HASH",  _client.CreditCardHash(txtbxCreditCardNumber.Text));
 
             // CC_CARD_HOLDER_NAME is a System Attribute.
             l_eventToCreate.AddData("CC_CARD_HOLDER_NAME", txtbxCardHolderName.Text);
