@@ -5,11 +5,26 @@ namespace Fraudpointer.API
 {   
     class WindowsConsoleClientExample
     {
+        static void WrongSyntax()
+        {
+            Console.Error.WriteLine("You didn't use the correct arguments to call this program.");
+            Console.Error.WriteLine("You need two: ");
+            Console.Error.WriteLine("   1st has to be the base url for the Fraudpointer API. Try: https://production.fraudpointer.com/api");
+            Console.Error.WriteLine("   2nd has to be your API Key. You will find it in your Fraudpointer Application Account details.");
+        }
+
         static void Main(string[] args)
         {
+            if ( args.Length != 2)
+            {
+                WrongSyntax();
+                return;
+            }
+            String baseUrl = args[0];
+            String apiKey = args[1];
             try
-            {                
-                var client = ClientFactory.Construct("https://production.fraudpointer.com/api", "KEY");
+            {
+                var client = ClientFactory.Construct(baseUrl, apiKey);
                 AssessmentSession assessmentSession = client.CreateAssessmentSession();
                 Console.WriteLine("Assessement Session ID: " + assessmentSession.Id);
 
@@ -30,7 +45,7 @@ namespace Fraudpointer.API
                 DateTime attemptDate = new DateTime(2011, 3, 22, 10, 0, 0, DateTimeKind.Local);
                 l_event.AddData("E_TRAVEL_SA_PURCHASE_DATE", attemptDate);
 
-                l_event.AddData("BILLING_ADDRESS_STREE_NAME", "Othonos");
+                l_event.AddData("BILLING_ADDRESS_STREET_NAME", "Othonos");
 
                 client.AppendEventToAssessmentSession(assessmentSession, l_event);
 
