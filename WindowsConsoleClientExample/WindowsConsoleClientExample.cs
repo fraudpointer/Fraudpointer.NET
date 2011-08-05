@@ -11,20 +11,42 @@ namespace Fraudpointer.API
             Console.Error.WriteLine("You need two: ");
             Console.Error.WriteLine("   1st has to be the base url for the Fraudpointer API. Try: https://production.fraudpointer.com/api");
             Console.Error.WriteLine("   2nd has to be your API Key. You will find it in your Fraudpointer Application Account details.");
+            Console.Error.WriteLine("   You can optionally pass the web request timeout as 3rd parameter (given in milliseconds)");
         }
 
         static void Main(string[] args)
         {
-            if ( args.Length != 2)
+            // parse run-time arguments
+            if ( args.Length < 2 || args.Length > 3)
             {
                 WrongSyntax();
                 return;
             }
             String baseUrl = args[0];
             String apiKey = args[1];
+            int webRequestTimeout = 5000;
+            if ( args.Length == 3)
+            {
+                try
+                {
+                    webRequestTimeout = int.Parse(args[2]);
+                    if (webRequestTimeout<0)
+                    {
+                        WrongSyntax();
+                        return;
+                    }                        
+                }
+                catch (Exception ex)
+                {
+                    WrongSyntax();
+                    return;
+                }                
+            }
+            //-----------------------------------
+
             try
             {
-                var client = ClientFactory.Construct(baseUrl, apiKey);
+                var client = ClientFactory.Construct(baseUrl, apiKey, webRequestTimeout);
                 AssessmentSession assessmentSession = client.CreateAssessmentSession();
                 Console.WriteLine("Assessement Session ID: " + assessmentSession.Id);
 

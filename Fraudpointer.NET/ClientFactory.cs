@@ -21,6 +21,9 @@ namespace Fraudpointer.API
         /// IClient client = ClientFactory.Construct("https://production.fraudpointer.com/api",
         ///                                          "8312453678901abcdef123456789328");    
         /// </code>
+        /// Note that the object returned uses a default timeout of 5 seconds in its communication with the Fraudpointer Server.
+        /// If you want to set the timeout in a different value, use the ClientFactory.Construct(string baseUrl, string apiKey, int webRequestTimeout) method
+        /// instead, giving the timeout (in milliseconds) as an input parameter.
         /// </remarks>
         /// <param name="baseUrl">This is the URL of the FraudPointer API Service. It has to have the value:
         /// <code>https://production.fraudpointer.com/api</code>
@@ -37,6 +40,22 @@ namespace Fraudpointer.API
 
         } // Construct static method
         //---------------------------
+
+        /// <summary>
+        /// Similar to ClientFactory.Construct(string baseUrl, string apiKey) but takes as extra input a web request timeout in
+        /// milliseconds.
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="webRequestTimeout"></param>
+        /// <returns></returns>
+        public static IClient Construct(string baseUrl, string apiKey, int webRequestTimeout)
+        {
+
+            return new Client(new HttpWrapper(baseUrl, webRequestTimeout), apiKey);
+
+        } // Construct static method that takes as input a webRequestTimeout in milliseconds
+        //----------------------------------------------------------------------------------
 
     } // class ClientFactory
     //-----------------------

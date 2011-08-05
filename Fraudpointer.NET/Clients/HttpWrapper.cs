@@ -17,12 +17,29 @@ namespace Fraudpointer.API.Clients
         private readonly string _baseUrl;
 
         /// <summary>
+        /// The Web Request Timeout. Default value is set in the constructor        
+        /// </summary>
+        private int _webRequestTimeout;
+
+        /// <summary>
         /// Constructor with base url
         /// </summary>
         /// <param name="baseUrl">Url used as a base in all request done in this HttpWrapper</param>
         public HttpWrapper(string baseUrl)
         {
             _baseUrl = baseUrl;
+            _webRequestTimeout = 5000;
+        }
+
+        /// <summary>
+        /// Constructor with base url and web request timeout
+        /// </summary>
+        /// <param name="baseUrl">Url used as a base in all requests done in this HttpWrapper</param>
+        /// <param name="webRequestTimeout">The HTTP Web Request Timeout in milliseconds</param>
+        public HttpWrapper(string baseUrl, int webRequestTimeout)
+        {
+            _baseUrl = baseUrl;
+            _webRequestTimeout = webRequestTimeout;
         }
 
         /// <summary>
@@ -84,7 +101,7 @@ namespace Fraudpointer.API.Clients
             webRequest.Accept = "application/json";
             webRequest.ContentType = "application/json; charset=utf-8";
             webRequest.Method = "GET";
-            webRequest.Timeout = 5000;
+            webRequest.Timeout = _webRequestTimeout;
 
             return webRequest;
         }
