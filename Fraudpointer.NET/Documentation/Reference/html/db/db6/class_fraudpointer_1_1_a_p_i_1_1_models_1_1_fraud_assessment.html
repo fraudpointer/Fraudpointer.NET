@@ -107,6 +107,10 @@ Properties</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The Result of the Fraud Assessment.  <a href="#a1c8a540fa6bbfaffce5de1b982e96343"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html">Profile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#aa024f7a9a8afa7ea8b2e04a1be7f6615">Profile</a><code> [get, set]</code></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> used to carry out the Fraud Assessment.  <a href="#aa024f7a9a8afa7ea8b2e04a1be7f6615"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/de8/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_case.html">Case</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a95587c4dd846cbcbe5941b34f06b8de0">Case</a><code> [get, set]</code></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The case generated with the assesment.  <a href="#a95587c4dd846cbcbe5941b34f06b8de0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a969f167f8d19965b64d07bfa5efb25da">UpdatedAt</a><code> [get, set]</code></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Last time this FraudAssesment was updated.  <a href="#a969f167f8d19965b64d07bfa5efb25da"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This is an object that is returned by FraudPointer Server when requesting a Fraud Assessment. </p>
@@ -129,8 +133,26 @@ Properties</h2></td></tr>
 </ul>
 <p>It is up to your business to decide what to do with this <a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a1c8a540fa6bbfaffce5de1b982e96343" title="The Result of the Fraud Assessment.">FraudAssessment.Result</a>. For example, if the <a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a1c8a540fa6bbfaffce5de1b982e96343" title="The Result of the Fraud Assessment.">FraudAssessment.Result</a> is "Reject", you can stop from carrying out the actual transaction with your bank. </p>
 
-<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00028">28</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
 </div><hr/><h2>Property Documentation</h2>
+<a class="anchor" id="a95587c4dd846cbcbe5941b34f06b8de0"></a><!-- doxytag: member="Fraudpointer::API::Models::FraudAssessment::Case" ref="a95587c4dd846cbcbe5941b34f06b8de0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/de8/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_case.html">Case</a> Fraudpointer.API.Models.FraudAssessment.Case<code> [get, set]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The case generated with the assesment. </p>
+<p>When a final assesment is created a case is created too. This field will contain the case information when you create a final assesment or you get a previous assesment. </p>
+
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00113">113</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a576bbd170aa419acfe1acf5462f1921e"></a><!-- doxytag: member="Fraudpointer::API::Models::FraudAssessment::DecidingFactor" ref="a576bbd170aa419acfe1acf5462f1921e" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -151,7 +173,7 @@ Properties</h2></td></tr>
 <p>If the Deciding Factor has the value "Profile thresholds", then you can see the <a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a812b6f6e27567bf07ae35f5b3904804d" title="The Score of the Fraud Assessment.">FraudAssessment.Score</a> that the Fraud Assessment calculated. This <a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a812b6f6e27567bf07ae35f5b3904804d" title="The Score of the Fraud Assessment.">FraudAssessment.Score</a> normally falls into one of the ranges that are defined in the <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> level that has been used to carry out the Fraud Assessment. According to this range, the Result is set.</p>
 <p>If the Deciding Factor has a value different from "Profile thresholds", then it has the value of the Rule that matched. That Rule is a Deciding Rule and its <a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a1c8a540fa6bbfaffce5de1b982e96343" title="The Result of the Fraud Assessment.">FraudAssessment.Result</a> was set as Result of the Fraud Assessment at hand. </p>
 
-<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00075">75</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00076">76</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
 
 </div>
 </div>
@@ -168,7 +190,7 @@ Properties</h2></td></tr>
 
 <p>Unique <code>Id</code> as returend by the FraudPointer Server. </p>
 
-<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00033">33</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00034">34</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
 
 </div>
 </div>
@@ -184,9 +206,9 @@ Properties</h2></td></tr>
 <div class="memdoc">
 
 <p>bool to indicate interim or final (non-interim) Fraud Assessment. </p>
-<p>Indicates whether the Fraud Assessment is final (non-interim) or not (interim). <code>true</code> means that the Fraud Assessment is interim (non-final) whereas <code>false</code> means that Fraud Assessment is final (non-interim). Note that final Fraud Assessments create a Case in Fraud Pointer Application. </p>
+<p>Indicates whether the Fraud Assessment is final (non-interim) or not (interim). <code>true</code> means that the Fraud Assessment is interim (non-final) whereas <code>false</code> means that Fraud Assessment is final (non-interim). Note that final Fraud Assessments create a <a class="el" href="../../db/de8/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_case.html" title="Fraud assesment related case information.">Case</a> in Fraud Pointer Application. </p>
 
-<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00054">54</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00055">55</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
 
 </div>
 </div>
@@ -202,9 +224,9 @@ Properties</h2></td></tr>
 <div class="memdoc">
 
 <p>The <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> used to carry out the Fraud Assessment. </p>
-<p>The Fraud Assessment uses a set of Fraud Assessment Rules that belong to one specific <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a>. The <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> is selected at run-time using the <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> Selection Rules. This property returns an instance of the object that represents the <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> that has been selected in order to carry out the Fraud Assessment at hand. </p>
+<p>The Fraud Assessment uses a set of Fraud Assessment Rules that belong to one specific <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a>. The <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> is selected at run-time using the <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> Selection Rules. This property returns a <a class="el" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> object that has been selected in order to carry out the Fraud Assessment at hand. </p>
 
-<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00102">102</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00103">103</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
 
 </div>
 </div>
@@ -228,7 +250,7 @@ Properties</h2></td></tr>
 </ul>
 <p>You need to evaluate the Result of the Fraud Assessment and take necessary actions. </p>
 
-<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00090">90</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00091">91</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
 
 </div>
 </div>
@@ -246,7 +268,24 @@ Properties</h2></td></tr>
 <p>The Score of the Fraud Assessment. </p>
 <p>The Score of the Fraud Assessment has significance only if the Deciding Factor is "Profile thresholds". If the Deciding Factor has the name of a Rule, then do not take into account Score. </p>
 
-<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00043">43</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00044">44</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a969f167f8d19965b64d07bfa5efb25da"></a><!-- doxytag: member="Fraudpointer::API::Models::FraudAssessment::UpdatedAt" ref="a969f167f8d19965b64d07bfa5efb25da" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DateTime Fraudpointer.API.Models.FraudAssessment.UpdatedAt<code> [get, set]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Last time this FraudAssesment was updated. </p>
+
+<p>Definition at line <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html#l00119">119</a> of file <a class="el" href="../../d5/da5/_fraud_assessment_8cs_source.html">FraudAssessment.cs</a>.</p>
 
 </div>
 </div>

@@ -102,6 +102,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a <a class="el" href="../../de/ddf/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_event.html" title="Event object groups a set of Data under an Event Type. This whole set, is then associated to a Models...">Models.Event</a> to a <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a> object.  <a href="#a2664fb33251eacb39861e6d9bf15b60a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html">FraudAssessment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html#aa8dc01695d689636cf2f597fc6c55248">CreateFraudAssessment</a> (<a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html">AssessmentSession</a> assessmentSession, bool interim)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called in order to evaluate the fraud level of a <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a>.  <a href="#aa8dc01695d689636cf2f597fc6c55248"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html">FraudAssessment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html#a6838d19662c516302186eb55c59affec">GetFraudAssessment</a> (<a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html">AssessmentSession</a> assessmentSession, string assesmentId)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the results of a previously assesed session.  <a href="#a6838d19662c516302186eb55c59affec"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html#abfb6b364df1f138ef80a81331377d802">CreditCardHash</a> (string creditCardNumber)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to generate a hash of a credit card number. Use the generated hash to send the encrypted credit card number to FraudPointer Server instead of the credit card number itself.  <a href="#abfb6b364df1f138ef80a81331377d802"></a><br/></td></tr>
 </table>
@@ -223,7 +225,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Communicates with FraudPointer Server and gets back a ready to use <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a> object. </p>
 <p>It should be used as soon as you want to start using the FraudPointer service. Without a <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a> object you cannot do anything.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd><p class="startdd">An object of type <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a> as returned by FraudPointer Server. Object should contain the <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html#a869459ccca26c570242af892744271b5" title="Unique id for the created session returned by the server.">Models.AssessmentSession.Id</a> that uniquely identifies this <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a>. You should use this <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html#a869459ccca26c570242af892744271b5" title="Unique id for the created session returned by the server.">Models.AssessmentSession.Id</a> in whichever place the <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a> Id is required.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><p class="startdd">An object of type <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a> as returned by FraudPointer Server. Object should contain the <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html#ac1dd08a0d1cf18ff9b7da9001c4ca2fe" title="Unique id for the created session returned by the server.">Models.AssessmentSession.Id</a> that uniquely identifies this <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a>. You should use this <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html#ac1dd08a0d1cf18ff9b7da9001c4ca2fe" title="Unique id for the created session returned by the server.">Models.AssessmentSession.Id</a> in whichever place the <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a> Id is required.</p>
 <p class="enddd">Method always returns a valid object, unless an exception is thrown.</p>
 </dd></dl>
 <dl><dt><b>Exceptions:</b></dt><dd>
@@ -332,6 +334,44 @@ Public Member Functions</h2></td></tr>
 <dl><dt><b>Exceptions:</b></dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="../../dc/d91/class_fraudpointer_1_1_a_p_i_1_1_client_exception.html" title="Thrown by all IClient methods in case an error takes place and method cannot return its results norma...">API.ClientException</a></td><td>It may throw a <a class="el" href="../../dc/d91/class_fraudpointer_1_1_a_p_i_1_1_client_exception.html" title="Thrown by all IClient methods in case an error takes place and method cannot return its results norma...">ClientException</a> if an error occurs</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6838d19662c516302186eb55c59affec"></a><!-- doxytag: member="Fraudpointer::API::IClient::GetFraudAssessment" ref="a6838d19662c516302186eb55c59affec" args="(AssessmentSession assessmentSession, string assesmentId)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html">FraudAssessment</a> Fraudpointer.API.IClient.GetFraudAssessment </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html">AssessmentSession</a>&#160;</td>
+          <td class="paramname"><em>assessmentSession</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>assesmentId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the results of a previously assesed session. </p>
+<p>Use this method to retrieve a previously created Fraud assesment.</p>
+<p>When you create a fraud assesment with <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html#aa8dc01695d689636cf2f597fc6c55248" title="This method should be called in order to evaluate the fraud level of a Models.AssessmentSession.">CreateFraudAssessment</a> you receive the result of the assesment and its Id. Using the session id and the assesment id you can retrieve that result with this method.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">assessmentSession</td><td>A valid <a class="el" href="../../d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html" title="An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the first method that you need to call to start interacting with the FraudPointer Server.">Models.AssessmentSession</a>, previously created with <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html#ae60dd3589626f87815029516ac682ff2" title="Communicates with FraudPointer Server and gets back a ready to use Models.AssessmentSession object...">CreateAssessmentSession</a></td></tr>
+    <tr><td class="paramname">assesmentId</td><td>A valid assesment id previously obtained with <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html#aa8dc01695d689636cf2f597fc6c55248" title="This method should be called in order to evaluate the fraud level of a Models.AssessmentSession.">CreateFraudAssessment</a></td></tr>
   </table>
   </dd>
 </dl>

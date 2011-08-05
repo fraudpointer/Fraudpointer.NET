@@ -87,15 +87,73 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 {   
     <span class="keyword">class </span>WindowsConsoleClientExample
     {
+        <span class="keyword">static</span> <span class="keywordtype">void</span> WrongSyntax()
+        {
+            Console.Error.WriteLine(<span class="stringliteral">&quot;You didn&#39;t use the correct arguments to call this program.&quot;</span>);
+            Console.Error.WriteLine(<span class="stringliteral">&quot;You need two: &quot;</span>);
+            Console.Error.WriteLine(<span class="stringliteral">&quot;   1st has to be the base url for the Fraudpointer API. Try: https://production.fraudpointer.com/api&quot;</span>);
+            Console.Error.WriteLine(<span class="stringliteral">&quot;   2nd has to be your API Key. You will find it in your Fraudpointer Application Account details.&quot;</span>);
+            Console.Error.WriteLine(<span class="stringliteral">&quot;   You can optionally pass the web request timeout as 3rd parameter (given in milliseconds)&quot;</span>);
+        } <span class="comment">// WrongSyntax ()</span>
+        <span class="comment">//------------------</span>
+
+        <span class="keyword">static</span> <span class="keywordtype">void</span> PrintFraudAssessmentDetails (FraudAssessment fraudAssessment)
+        {
+            Console.WriteLine(<span class="stringliteral">&quot;...Fraud Assessment Id: &quot;</span> + fraudAssessment.Id);
+            Console.WriteLine(<span class="stringliteral">&quot;...Fraud Assessment Score: &quot;</span> + fraudAssessment.Score);
+            Console.WriteLine(<span class="stringliteral">&quot;...Fraud Assessment Result: &quot;</span> + fraudAssessment.Result);
+            Console.WriteLine(<span class="stringliteral">&quot;...Fraud Assessment Deciding Factor: &quot;</span> + fraudAssessment.DecidingFactor);
+            Console.WriteLine(<span class="stringliteral">&quot;...Fraud Assessment Updated At: &quot;</span> + fraudAssessment.UpdatedAt);
+            Console.WriteLine(<span class="stringliteral">&quot;......Profile Id: &quot;</span> + fraudAssessment.Profile.Id);
+            Console.WriteLine(<span class="stringliteral">&quot;......Profile Name: &quot;</span> + fraudAssessment.Profile.Name);
+            Console.WriteLine(<span class="stringliteral">&quot;......Profile Updated At: &quot;</span> + fraudAssessment.Profile.UpdatedAt);
+            Console.WriteLine(<span class="stringliteral">&quot;......Case Id: &quot;</span> + fraudAssessment.Case.Id);
+            Console.WriteLine(<span class="stringliteral">&quot;......Case Resolution: &quot;</span> + fraudAssessment.Case.Resolution);
+            Console.WriteLine(<span class="stringliteral">&quot;......Case Status: &quot;</span> + fraudAssessment.Case.Status);
+            Console.WriteLine(<span class="stringliteral">&quot;......Case Update At: &quot;</span> + fraudAssessment.Case.UpdatedAt);
+        } <span class="comment">// PrintFraudAssessmentDetails ()</span>
+        <span class="comment">//----------------------------------</span>
+
         <span class="keyword">static</span> <span class="keywordtype">void</span> Main(<span class="keywordtype">string</span>[] args)
         {
-            <span class="keywordflow">try</span>
-            {                
-                var client = ClientFactory.Construct(<span class="stringliteral">&quot;http://10.0.0.123:3000/api&quot;</span>,
-                                                                     <span class="stringliteral">&quot;45440beccd884a687f9372f37b3dc82943e21f9a99f766a8c5841a316f818b09&quot;</span>);
-                AssessmentSession assessmentSession = client.CreateAssessmentSession();
-                Console.WriteLine(<span class="stringliteral">&quot;Assessement Session ID: &quot;</span> + assessmentSession.Id);
+            <span class="comment">// parse run-time arguments</span>
+            <span class="keywordflow">if</span> ( args.Length &lt; 2 || args.Length &gt; 3)
+            {
+                WrongSyntax();
+                <span class="keywordflow">return</span>;
+            }
+            String baseUrl = args[0];
+            String apiKey = args[1];
+            <span class="keywordtype">int</span> webRequestTimeout = 5000;
+            <span class="keywordflow">if</span> ( args.Length == 3)
+            {
+                <span class="keywordflow">try</span>
+                {
+                    webRequestTimeout = <span class="keywordtype">int</span>.Parse(args[2]);
+                    <span class="keywordflow">if</span> (webRequestTimeout&lt;0)
+                    {
+                        WrongSyntax();
+                        <span class="keywordflow">return</span>;
+                    }                        
+                }
+                <span class="keywordflow">catch</span> (Exception ex)
+                {
+                    WrongSyntax();
+                    <span class="keywordflow">return</span>;
+                }                
+            }
+            <span class="comment">//-----------------------------------</span>
 
+            <span class="keywordflow">try</span>
+            {
+                var client = ClientFactory.Construct(baseUrl, apiKey, webRequestTimeout);
+
+                Console.WriteLine(<span class="stringliteral">&quot;About to Create an Assessment Session...&quot;</span>);
+                AssessmentSession assessmentSession = client.CreateAssessmentSession();
+                Console.WriteLine(<span class="stringliteral">&quot;...done. Assessement Session ID: &quot;</span> + assessmentSession.Id);
+
+                <span class="comment">//--------- Generic Event --------------------------------</span>
+                Console.WriteLine(<span class="stringliteral">&quot;About to Create a Generic Event...&quot;</span>);
                 Event l_event = <span class="keyword">new</span> Event(Event.GenericEvent);
 
                 l_event.AddData(<span class="stringliteral">&quot;BookingCode&quot;</span>, <span class="stringliteral">&quot;1234&quot;</span>);
@@ -105,21 +163,41 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
                 DateTime reservationDate = <span class="keyword">new</span> DateTime(2001, 3, 21, 8, 0, 0, DateTimeKind.Local);
                 l_event.AddData(<span class="stringliteral">&quot;ReservationDate&quot;</span>, reservationDate);
+                Console.WriteLine(<span class="stringliteral">&quot;...done&quot;</span>);
 
-                client.AppendEventToAssessmentSession(assessmentSession, l_event);
+                Console.WriteLine(<span class="stringliteral">&quot;About to Send Event over to Fraudpointer Server...&quot;</span>);
+                Event l_eventReturned = client.AppendEventToAssessmentSession(assessmentSession, l_event);
+                Console.WriteLine(<span class="stringliteral">&quot;...done. Event&quot;</span>);
+                <span class="comment">//--------------------------------------------------------</span>
 
+                <span class="comment">//-------- Failed Payment Event --------------------------</span>
+                Console.WriteLine(<span class="stringliteral">&quot;About to Create a Failed Payment Event...&quot;</span>);
                 l_event = <span class="keyword">new</span> Event(Event.FailedPayment);
 
                 DateTime attemptDate = <span class="keyword">new</span> DateTime(2011, 3, 22, 10, 0, 0, DateTimeKind.Local);
                 l_event.AddData(<span class="stringliteral">&quot;E_TRAVEL_SA_PURCHASE_DATE&quot;</span>, attemptDate);
 
-                l_event.AddData(<span class="stringliteral">&quot;BILLING_ADDRESS_STREE_NAME&quot;</span>, <span class="stringliteral">&quot;Othonos&quot;</span>);
+                l_event.AddData(<span class="stringliteral">&quot;BILLING_ADDRESS_STREET_NAME&quot;</span>, <span class="stringliteral">&quot;Othonos&quot;</span>);
+                Console.WriteLine(<span class="stringliteral">&quot;...done&quot;</span>);
 
-                client.AppendEventToAssessmentSession(assessmentSession, l_event);
+                Console.WriteLine(<span class="stringliteral">&quot;About to Send Event over to Fraudpointer Server...&quot;</span>);
+                l_eventReturned = client.AppendEventToAssessmentSession(assessmentSession, l_event);
+                Console.WriteLine(<span class="stringliteral">&quot;...done. Event&quot;</span>);
+                <span class="comment">//---------------------------------------------------------</span>
 
+                <span class="comment">//--------- Ask for Fraud Assessment ----------------------</span>
+                Console.WriteLine(<span class="stringliteral">&quot;About to ask for Final Fraud Assessment&quot;</span>);
                 FraudAssessment fa = client.CreateFraudAssessment(assessmentSession, <span class="keyword">false</span>);
-                Console.WriteLine(<span class="stringliteral">&quot;FraudAssessment: ID:&quot;</span> + fa.Id + <span class="stringliteral">&quot;, Score: &quot;</span> + fa.Score + <span class="stringliteral">&quot;, fa: &quot;</span> + fa);
-                Console.ReadLine();
+                Console.WriteLine(<span class="stringliteral">&quot;...done&quot;</span>);
+                PrintFraudAssessmentDetails(fa);
+                <span class="comment">//---------------------------------------------------------</span>
+
+                <span class="comment">//---- For demo purposed I will now ask for the previously created Fraud Assessment ----</span>
+                Console.WriteLine(<span class="stringliteral">&quot;About to ask for the previously created Fraud Assessment&quot;</span>);
+                FraudAssessment fa_got = client.GetFraudAssessment(assessmentSession, fa.Id);
+                Console.WriteLine(<span class="stringliteral">&quot;...done&quot;</span>);
+                PrintFraudAssessmentDetails(fa_got);
+                <span class="comment">//--------------------------------------------------------------------------------------</span>
                 
             } <span class="comment">// try</span>
             <span class="keywordflow">catch</span> (Fraudpointer.API.ClientException ex)
@@ -132,6 +210,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
             } <span class="comment">// catch  </span>
 
         } <span class="comment">// Main </span>
+        <span class="comment">//---------</span>
+
     } <span class="comment">// class</span>
 } <span class="comment">// namespace</span>
 </pre></div><div class="fragment"><pre class="fragment"></pre></div> </div>

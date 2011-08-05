@@ -256,6 +256,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <span class="keyword">using</span> System.Web.UI.WebControls;
 <span class="keyword">using</span> System.Configuration;
 <span class="keyword">using</span> Fraudpointer.API;
+<span class="keyword">using</span> Fraudpointer.API.Extensions;
 <span class="keyword">using</span> Fraudpointer.API.Models;
 <span class="keyword">using</span> System.Web;
 
@@ -537,7 +538,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
             <span class="comment">// CC_HASH is a System Attribute. You should always use the CreditCardHash to hash your </span>
             <span class="comment">// Credit Card Number and send it to Fraud Pointer Server.</span>
-            l_eventToCreate.AddData(<span class="stringliteral">&quot;CC_HASH&quot;</span>, _client.CreditCardHash(txtbxCreditCardNumber.Text));
+            l_eventToCreate.AddData(<span class="stringliteral">&quot;CC_HASH&quot;</span>,  _client.CreditCardHash(txtbxCreditCardNumber.Text));
 
             <span class="comment">// CC_CARD_HOLDER_NAME is a System Attribute.</span>
             l_eventToCreate.AddData(<span class="stringliteral">&quot;CC_CARD_HOLDER_NAME&quot;</span>, txtbxCardHolderName.Text);

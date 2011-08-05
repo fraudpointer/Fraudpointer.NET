@@ -97,6 +97,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html">IClient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html#a79be2b04f817be576b85f57597443ea7">Construct</a> (string baseUrl, string apiKey)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates an object that properly implements <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html" title="Fraudpointer.API.IClient is the interface that each C# client should implement in order to be used as...">IClient</a> interface.  <a href="#a79be2b04f817be576b85f57597443ea7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html">IClient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html#afdbf9d46b477f17055f1eddbd700a4d2">Construct</a> (string baseUrl, string apiKey, int webRequestTimeout)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to <a class="el" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html#a79be2b04f817be576b85f57597443ea7" title="Instantiates an object that properly implements IClient interface.">ClientFactory.Construct(string baseUrl, string apiKey)</a> but takes as extra input a web request timeout in milliseconds.  <a href="#afdbf9d46b477f17055f1eddbd700a4d2"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This is a helping class that instantiates an object that implements <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html" title="Fraudpointer.API.IClient is the interface that each C# client should implement in order to be used as...">IClient</a> interface. </p>
@@ -134,7 +136,8 @@ Static Public Member Functions</h2></td></tr>
 <p>Here is an example of usage: </p>
 <div class="fragment"><pre class="fragment">            IClient client = ClientFactory.Construct(<span class="stringliteral">&quot;https://production.fraudpointer.com/api&quot;</span>,
                                                      <span class="stringliteral">&quot;8312453678901abcdef123456789328&quot;</span>);    
-</pre></div><dl><dt><b>Parameters:</b></dt><dd>
+</pre></div><p> Note that the object returned uses a default timeout of 5 seconds in its communication with the Fraudpointer Server. If you want to set the timeout in a different value, use the <a class="el" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html#afdbf9d46b477f17055f1eddbd700a4d2" title="Similar to ClientFactory.Construct(string baseUrl, string apiKey) but takes as extra input a web requ...">ClientFactory.Construct(string baseUrl, string apiKey, int webRequestTimeout)</a> method instead, giving the timeout (in milliseconds) as an input parameter.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">baseUrl</td><td>This is the URL of the FraudPointer <a class="el" href="../../de/d67/namespace_fraudpointer_1_1_a_p_i.html">API</a> Service. It has to have the value: <div class="fragment"><pre class="fragment">https:<span class="comment">//production.fraudpointer.com/api</span>
 </pre></div> </td></tr>
@@ -144,7 +147,53 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>A valid <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html" title="Fraudpointer.API.IClient is the interface that each C# client should implement in order to be used as...">IClient</a> instantiated object. This is a newly created object to work with the FraudPointer Service.</dd></dl>
 
-<p>Definition at line <a class="el" href="../../d2/dcd/_client_factory_8cs_source.html#l00033">33</a> of file <a class="el" href="../../d2/dcd/_client_factory_8cs_source.html">ClientFactory.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/dcd/_client_factory_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d2/dcd/_client_factory_8cs_source.html">ClientFactory.cs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afdbf9d46b477f17055f1eddbd700a4d2"></a><!-- doxytag: member="Fraudpointer::API::ClientFactory::Construct" ref="afdbf9d46b477f17055f1eddbd700a4d2" args="(string baseUrl, string apiKey, int webRequestTimeout)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html">IClient</a> Fraudpointer.API.ClientFactory.Construct </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>baseUrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>apiKey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>webRequestTimeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Similar to <a class="el" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html#a79be2b04f817be576b85f57597443ea7" title="Instantiates an object that properly implements IClient interface.">ClientFactory.Construct(string baseUrl, string apiKey)</a> but takes as extra input a web request timeout in milliseconds. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">baseUrl</td><td></td></tr>
+    <tr><td class="paramname">apiKey</td><td></td></tr>
+    <tr><td class="paramname">webRequestTimeout</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d2/dcd/_client_factory_8cs_source.html#l00052">52</a> of file <a class="el" href="../../d2/dcd/_client_factory_8cs_source.html">ClientFactory.cs</a>.</p>
 
 </div>
 </div>

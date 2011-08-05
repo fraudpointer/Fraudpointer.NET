@@ -89,19 +89,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00004"></a>00004 {
 <a name="l00011"></a><a class="code" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html">00011</a>     <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html" title="This is a helping class that instantiates an object that implements IClient interface.">ClientFactory</a>
 <a name="l00012"></a>00012     {
-<a name="l00033"></a><a class="code" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html#a79be2b04f817be576b85f57597443ea7">00033</a>         <span class="keyword">public</span> <span class="keyword">static</span> <a class="code" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html" title="Fraudpointer.API.IClient is the interface that each C# client should implement in order to be used as...">IClient</a> Construct(<span class="keywordtype">string</span> baseUrl, <span class="keywordtype">string</span> apiKey)
-<a name="l00034"></a>00034         {
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036             <span class="keywordflow">return</span> <span class="keyword">new</span> Client(baseUrl, apiKey);            
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038         } <span class="comment">// Construct static method</span>
-<a name="l00039"></a>00039         <span class="comment">//---------------------------</span>
+<a name="l00036"></a><a class="code" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html#a79be2b04f817be576b85f57597443ea7">00036</a>         <span class="keyword">public</span> <span class="keyword">static</span> <a class="code" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html" title="Fraudpointer.API.IClient is the interface that each C# client should implement in order to be used as...">IClient</a> Construct(<span class="keywordtype">string</span> baseUrl, <span class="keywordtype">string</span> apiKey)
+<a name="l00037"></a>00037         {
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039             <span class="keywordflow">return</span> <span class="keyword">new</span> Client(<span class="keyword">new</span> HttpWrapper(baseUrl), apiKey);            
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041     } <span class="comment">// class ClientFactory</span>
-<a name="l00042"></a>00042     <span class="comment">//-----------------------</span>
+<a name="l00041"></a>00041         } <span class="comment">// Construct static method</span>
+<a name="l00042"></a>00042         <span class="comment">//---------------------------</span>
 <a name="l00043"></a>00043 
-<a name="l00044"></a>00044 } <span class="comment">// namespace Fraudpointer.API</span>
-<a name="l00045"></a>00045 <span class="comment">//------------------------------</span>
+<a name="l00052"></a><a class="code" href="../../d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html#afdbf9d46b477f17055f1eddbd700a4d2">00052</a>         <span class="keyword">public</span> <span class="keyword">static</span> <a class="code" href="../../d1/dbf/interface_fraudpointer_1_1_a_p_i_1_1_i_client.html" title="Fraudpointer.API.IClient is the interface that each C# client should implement in order to be used as...">IClient</a> Construct(<span class="keywordtype">string</span> baseUrl, <span class="keywordtype">string</span> apiKey, <span class="keywordtype">int</span> webRequestTimeout)
+<a name="l00053"></a>00053         {
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055             <span class="keywordflow">return</span> <span class="keyword">new</span> Client(<span class="keyword">new</span> HttpWrapper(baseUrl, webRequestTimeout), apiKey);
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057         } <span class="comment">// Construct static method that takes as input a webRequestTimeout in milliseconds</span>
+<a name="l00058"></a>00058         <span class="comment">//----------------------------------------------------------------------------------</span>
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     } <span class="comment">// class ClientFactory</span>
+<a name="l00061"></a>00061     <span class="comment">//-----------------------</span>
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 } <span class="comment">// namespace Fraudpointer.API</span>
+<a name="l00064"></a>00064 <span class="comment">//------------------------------</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">

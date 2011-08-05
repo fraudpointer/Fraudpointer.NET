@@ -83,37 +83,45 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="title">Models/FraudAssessment.cs</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using Newtonsoft.Json;
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 <span class="keyword">namespace </span>Fraudpointer.API.Models
-<a name="l00004"></a>00004 {    
-<a name="l00027"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html">00027</a>     <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html" title="This is an object that is returned by FraudPointer Server when requesting a Fraud Assessment...">FraudAssessment</a>
-<a name="l00028"></a>00028     {
-<a name="l00032"></a>00032         [JsonProperty(PropertyName=<span class="stringliteral">&quot;id&quot;</span>)]
-<a name="l00033"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a730a39933033d987f63740d4a684b180">00033</a>         <span class="keyword">public</span> <span class="keywordtype">string</span> Id { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-<a name="l00034"></a>00034 
-<a name="l00042"></a>00042         [JsonProperty(PropertyName=<span class="stringliteral">&quot;score&quot;</span>)]
-<a name="l00043"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a812b6f6e27567bf07ae35f5b3904804d">00043</a>         <span class="keyword">public</span> <span class="keywordtype">string</span> Score { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-<a name="l00044"></a>00044 
-<a name="l00053"></a>00053         [JsonProperty(PropertyName=<span class="stringliteral">&quot;interim&quot;</span>)]
-<a name="l00054"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#af2ebcaa1742e1fc194cdfadb547f5642">00054</a>         <span class="keyword">public</span> <span class="keywordtype">bool</span> Interim { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-<a name="l00055"></a>00055 
-<a name="l00074"></a>00074         [JsonProperty(PropertyName=<span class="stringliteral">&quot;deciding_factor&quot;</span>)]
-<a name="l00075"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a576bbd170aa419acfe1acf5462f1921e">00075</a>         <span class="keyword">public</span> <span class="keywordtype">string</span> DecidingFactor { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-<a name="l00076"></a>00076 
-<a name="l00089"></a>00089         [JsonProperty(PropertyName=<span class="stringliteral">&quot;result&quot;</span>)]
-<a name="l00090"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a1c8a540fa6bbfaffce5de1b982e96343">00090</a>         <span class="keyword">public</span> <span class="keywordtype">string</span> Result { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-<a name="l00091"></a>00091 
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using System;
+<a name="l00002"></a>00002 <span class="keyword">using</span> Newtonsoft.Json;
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 <span class="keyword">namespace </span>Fraudpointer.API.Models
+<a name="l00005"></a>00005 {    
+<a name="l00028"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html">00028</a>     <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html" title="This is an object that is returned by FraudPointer Server when requesting a Fraud Assessment...">FraudAssessment</a>
+<a name="l00029"></a>00029     {
+<a name="l00033"></a>00033         [JsonProperty(PropertyName=<span class="stringliteral">&quot;id&quot;</span>)]
+<a name="l00034"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a730a39933033d987f63740d4a684b180">00034</a>         <span class="keyword">public</span> <span class="keywordtype">string</span> Id { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+<a name="l00035"></a>00035 
+<a name="l00043"></a>00043         [JsonProperty(PropertyName=<span class="stringliteral">&quot;score&quot;</span>)]
+<a name="l00044"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a812b6f6e27567bf07ae35f5b3904804d">00044</a>         <span class="keyword">public</span> <span class="keywordtype">string</span> Score { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+<a name="l00045"></a>00045 
+<a name="l00054"></a>00054         [JsonProperty(PropertyName=<span class="stringliteral">&quot;interim&quot;</span>)]
+<a name="l00055"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#af2ebcaa1742e1fc194cdfadb547f5642">00055</a>         <span class="keyword">public</span> <span class="keywordtype">bool</span> Interim { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+<a name="l00056"></a>00056 
+<a name="l00075"></a>00075         [JsonProperty(PropertyName=<span class="stringliteral">&quot;deciding_factor&quot;</span>)]
+<a name="l00076"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a576bbd170aa419acfe1acf5462f1921e">00076</a>         <span class="keyword">public</span> <span class="keywordtype">string</span> DecidingFactor { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+<a name="l00077"></a>00077 
+<a name="l00090"></a>00090         [JsonProperty(PropertyName=<span class="stringliteral">&quot;result&quot;</span>)]
+<a name="l00091"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a1c8a540fa6bbfaffce5de1b982e96343">00091</a>         <span class="keyword">public</span> <span class="keywordtype">string</span> Result { <span class="keyword">get</span>; <span class="keyword">set</span>; }
 <a name="l00092"></a>00092 
-<a name="l00101"></a>00101         [JsonProperty(PropertyName=<span class="stringliteral">&quot;profile&quot;</span>)]
-<a name="l00102"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#aa024f7a9a8afa7ea8b2e04a1be7f6615">00102</a>         <span class="keyword">public</span> <a class="code" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> <a class="code" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104     } <span class="comment">// public class FraudAssessment</span>
-<a name="l00105"></a>00105     <span class="comment">//--------------------------------</span>
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107 } <span class="comment">// namespace Fraudpointer.API.Models</span>
-<a name="l00108"></a>00108 <span class="comment">//--------------------------------------</span>
-<a name="l00109"></a>00109 
+<a name="l00093"></a>00093 
+<a name="l00102"></a>00102         [JsonProperty(PropertyName=<span class="stringliteral">&quot;profile&quot;</span>)]
+<a name="l00103"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#aa024f7a9a8afa7ea8b2e04a1be7f6615">00103</a>         <span class="keyword">public</span> <a class="code" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> <a class="code" href="../../d5/d55/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_profile.html" title="The Profile used to carry out the Fraud Assessment.">Profile</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+<a name="l00104"></a>00104 
+<a name="l00112"></a>00112         [JsonProperty(PropertyName=<span class="stringliteral">&quot;case&quot;</span>)]
+<a name="l00113"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a95587c4dd846cbcbe5941b34f06b8de0">00113</a>         <span class="keyword">public</span> <a class="code" href="../../db/de8/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_case.html" title="Fraud assesment related case information.">Case</a> <a class="code" href="../../db/de8/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_case.html" title="Fraud assesment related case information.">Case</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+<a name="l00114"></a>00114 
+<a name="l00118"></a>00118         [JsonProperty(PropertyName = <span class="stringliteral">&quot;updated_at&quot;</span>)]
+<a name="l00119"></a><a class="code" href="../../db/db6/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_fraud_assessment.html#a969f167f8d19965b64d07bfa5efb25da">00119</a>         <span class="keyword">public</span> DateTime UpdatedAt { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+<a name="l00120"></a>00120     }
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="comment">// public class FraudAssessment</span>
+<a name="l00123"></a>00123     <span class="comment">//--------------------------------</span>
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 } <span class="comment">// namespace Fraudpointer.API.Models</span>
+<a name="l00126"></a>00126 <span class="comment">//--------------------------------------</span>
+<a name="l00127"></a>00127 
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">

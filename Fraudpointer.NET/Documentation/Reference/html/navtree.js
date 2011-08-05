@@ -11,6 +11,7 @@ var NAVTREE =
     ] ],
     [ "Class List", "annotated.html", [
       [ "Fraudpointer.API.Models.AssessmentSession", "d0/d22/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_assessment_session.html", null ],
+      [ "Fraudpointer.API.Models.Case", "db/de8/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_case.html", null ],
       [ "Fraudpointer.API.ClientException", "dc/d91/class_fraudpointer_1_1_a_p_i_1_1_client_exception.html", null ],
       [ "Fraudpointer.API.ClientFactory", "d8/d88/class_fraudpointer_1_1_a_p_i_1_1_client_factory.html", null ],
       [ "Fraudpointer.API.Models.Event", "de/ddf/class_fraudpointer_1_1_a_p_i_1_1_models_1_1_event.html", null ],
@@ -22,13 +23,16 @@ var NAVTREE =
     [ "Class Members", "functions.html", null ],
     [ "Packages", "namespaces.html", [
       [ "Fraudpointer.API", "de/d67/namespace_fraudpointer_1_1_a_p_i.html", null ],
+      [ "Fraudpointer.API.Extensions", "d1/d10/namespace_fraudpointer_1_1_a_p_i_1_1_extensions.html", null ],
       [ "Fraudpointer.API.Models", "d2/dc9/namespace_fraudpointer_1_1_a_p_i_1_1_models.html", null ]
     ] ],
     [ "File List", "files.html", [
       [ "ClientException.cs", null, null ],
       [ "ClientFactory.cs", null, null ],
       [ "IClient.cs", null, null ],
+      [ "Extensions/StringExtensions.cs", null, null ],
       [ "Models/AssessmentSession.cs", null, null ],
+      [ "Models/Case.cs", null, null ],
       [ "Models/Event.cs", null, null ],
       [ "Models/FraudAssessment.cs", null, null ],
       [ "Models/Profile.cs", null, null ],
