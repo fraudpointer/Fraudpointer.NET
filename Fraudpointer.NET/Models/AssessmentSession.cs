@@ -26,7 +26,7 @@ namespace Fraudpointer.API.Models
         /// the hidden field value that is used by FraudPointer javascript <c>fp.js</c>
         /// </remarks>
         [JsonProperty(PropertyName="id")]
-        public int Id { get; set; }       
+        public string Id { get; set; }       
 
     } // AssessmentSession
 
