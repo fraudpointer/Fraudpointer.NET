@@ -249,6 +249,7 @@ namespace BettingDemo
             }
             else if (l_fa.Result == "Review" && _reviewMapping == "Review")
             {
+                _client.CreateFraudAssessment(GetOrCreateAssessmentSession(), false);
                 ResetSessionVars();
                 string l_strMessageToUser =
                     "We will hold your purchase request data and come back to you soon. Sorry for the delay.";
@@ -441,6 +442,7 @@ namespace BettingDemo
         private Event CreateAndSendCheckoutEvent(Account i_account)
         {
             Event l_eventToCreate = new Event(Event.CheckoutEvent);
+            l_eventToCreate.AddData("MERCHANT_REFERENCE", lblOrderNumber.Text);   
 
             // PURCHASE_AMOUNT is a System Session Attribute
             l_eventToCreate.AddData("PURCHASE_AMOUNT", txtbxAmount.Text);

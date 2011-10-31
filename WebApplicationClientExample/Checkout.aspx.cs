@@ -152,6 +152,7 @@ namespace WebApplicationClientExample
             }
             else if (l_fa.Result == "Review")
             {
+                _client.CreateFraudAssessment(GetOrCreateAssessmentSession(), false);
                 ResetSessionVars();
                 string l_strMessageToUser =
                     "We will hold your purchase request data and come back to you soon. Sorry for the delay.";
@@ -273,6 +274,7 @@ namespace WebApplicationClientExample
         private Event CreateAndSendCheckoutEvent()
         {
             Event l_eventToCreate = new Event(Event.CheckoutEvent);
+            l_eventToCreate.AddData("MERCHANT_REFERENCE", lblAcmeOrderNumber.Text);
 
             // ACME_DEPARTURE_CITY is an Account Custom Session Attribute defined in Fraud Pointer Application                        
             l_eventToCreate.AddData("ACME_DEPARTURE_CITY", lstBoxCityFrom.Items[lstBoxCityFrom.SelectedIndex].Text);
