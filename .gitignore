@@ -3,3 +3,7 @@
 /*.NET.sln.bak
 /*.ReSharper.user
 /README/
+_UpgradeReport_Files
+UpgradeLog.XML
+CreditCardHasher/obj
+CreditCardHasher/bin
