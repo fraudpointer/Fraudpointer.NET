@@ -81,6 +81,14 @@ namespace Fraudpointer.API.Models
         /// </remarks>
         public const string PurchaseEvent = "PurchaseEvent";
 
+		/// <summary>
+		/// Reserved
+        /// </summary>
+        /// <remarks>
+		/// Reserved
+        /// </remarks>
+        public const string TrackEvent = "TrackEvent";
+		
         /// <summary>
         /// Instantiate a Models.Event by calling <c>new</c> on this Constructor
         /// </summary>
