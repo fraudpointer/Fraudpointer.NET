@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Newtonsoft.Json;
 
+
 namespace Fraudpointer.API.Models
 {
     /// <summary>
